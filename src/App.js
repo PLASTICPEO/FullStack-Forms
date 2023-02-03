@@ -1,7 +1,13 @@
-import "./App.css";
+import { useEffect, useState } from "react";
+import Filter from "./components/Filter/filter";
+import PersonForm from "./components/PersonForm/personForm";
 
-function App() {
-  return <div>Helloo world</div>;
-}
+const App = () => {
+  return (
+    <div>
+      <PersonForm />
+    </div>
+  );
+};
 
 export default App;
