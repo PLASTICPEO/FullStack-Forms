@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import Filter from "./components/Filter/filter";
-import PersonForm from "./components/PersonForm/personForm";
+import PersonForm from "./components/PersonForm/personform";
 
 const App = () => {
   return (

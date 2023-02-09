@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const Filter = ({ personBook }) => {
-  const [filter, setFilter] = useState();
-
+const Filter = ({ handleFilterChange }) => {
   return (
     <div>
-      <input onChange={(e) => setFilter(e.target.value)} />
+      <h2>Filter show this</h2>
+      <input onChange={(e) => handleFilterChange(e.target.value)} />
     </div>
   );
 };

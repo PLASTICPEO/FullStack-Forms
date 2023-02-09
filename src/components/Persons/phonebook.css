@@ -1,0 +1,13 @@
+.button {
+    background: #F7ECE1;
+    border: 1px solid #2d2402;
+    border-radius: 4px;
+}
+
+.button:hover {
+    background: #4281A4;
+}
+
+.button:active {
+    box-shadow: inset 0 0 10px #fff;
+}
