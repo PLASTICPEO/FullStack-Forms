@@ -1,29 +1,24 @@
 {
   "persons": [
     {
-      "name": "gocho",
-      "number": "005",
-      "id": 3
-    },
-    {
-      "name": "gio",
-      "number": "123",
-      "id": 6
-    },
-    {
-      "name": "meri",
-      "number": "1231",
-      "id": 7
-    },
-    {
-      "name": "niko",
-      "number": "12",
+      "name": "Gio Davlasheridze",
+      "number": "597 600 949",
       "id": 8
     },
     {
-      "name": "kuku",
-      "number": "123",
+      "name": "Meri Meishvili",
+      "number": "514 509 797",
       "id": 9
+    },
+    {
+      "name": "Gocha Davlasheridze",
+      "number": "592 902 299",
+      "id": 10
+    },
+    {
+      "name": "Niko Parcvania ",
+      "number": "574 990 330",
+      "id": 11
     }
   ]
 }

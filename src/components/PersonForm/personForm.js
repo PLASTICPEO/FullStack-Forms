@@ -3,6 +3,7 @@ import "./personform.css";
 import axios from "axios";
 import Phonebook from "../Persons/phonebook";
 import Filter from "../Filter/filter";
+import Notification from "../notification/notification";
 
 const PersonForm = () => {
   const [newName, setNewName] = useState("");
@@ -10,6 +11,7 @@ const PersonForm = () => {
   const [renderDataGet, setRenderGET] = useState(false);
   const [persons, setPersons] = useState([]);
   const [filter, setFilter] = useState("");
+  const [errorMessage, setErrorMessage] = useState({ from: null });
 
   useEffect(() => {
     axios.get("http://localhost:3001/persons").then((response) => {
@@ -23,6 +25,13 @@ const PersonForm = () => {
 
   const handleFilterChange = (filter) => {
     setFilter(filter);
+  };
+
+  const deleteError = (error) => {
+    setErrorMessage(error);
+    setTimeout(() => {
+      setErrorMessage({ from: null });
+    }, 3000);
   };
 
   const submitperson = () => {
@@ -43,9 +52,23 @@ const PersonForm = () => {
           .put(`http://localhost:3001/persons/${similarPerson.id}`, noteObject)
           .then(() => {
             setRenderGET(!renderDataGet);
+            setErrorMessage({
+              from: "put",
+              message: `Replace ${newName} ${newNumber}`,
+            });
+            setTimeout(() => {
+              setErrorMessage({ from: null });
+            }, 3000);
           })
       : axios.post("http://localhost:3001/persons", noteObject).then(() => {
           setRenderGET(!renderDataGet);
+          setErrorMessage({
+            from: "put",
+            message: `Add ${newName} ${newNumber}`,
+          });
+          setTimeout(() => {
+            setErrorMessage({ from: null });
+          }, 3000);
         });
 
     setNewName("");
@@ -61,6 +84,8 @@ const PersonForm = () => {
   );
   return (
     <div>
+      <h1>PhoneBook</h1>
+      <Notification message={errorMessage} />
       <Filter person={persons} handleFilterChange={handleFilterChange} />
       <h2>Add a new</h2>
       <form onClick={(e) => formManagement(e)}>
@@ -92,6 +117,7 @@ const PersonForm = () => {
         persons={persons}
         filteredPersons={filteredPersons}
         handleSetPersons={handleChangePersons}
+        deleteErrorCatch={deleteError}
       />
     </div>
   );
